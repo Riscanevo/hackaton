@@ -1,0 +1,160 @@
+<div class="container mt-5">
+  <h1 class="text-center text-white">Panel de Permisos de Trabajo</h1>
+
+  <div class="row mt-5">
+    <!-- Formulario para crear nuevo permiso -->
+    <div class="col-md-6">
+      <h2 class="text-white">Crear Nuevo Permiso de Trabajo</h2>
+      <form (ngSubmit)="createWorkPermit()" class="form p-4 rounded bg-dark text-white shadow-lg">
+        <div class="form-group mb-3">
+          <label for="userId">ID de Usuario:</label>
+          <input
+            type="number"
+            [(ngModel)]="newWorkPermit.userId"
+            name="userId"
+            class="form-control bg-dark text-white border-0"
+            placeholder="Introduce el ID de usuario"
+            required
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="workType">Tipo de Trabajo:</label>
+          <input
+            type="text"
+            [(ngModel)]="newWorkPermit.workType"
+            name="workType"
+            class="form-control bg-dark text-white border-0"
+            placeholder="Introduce el tipo de trabajo"
+            required
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="estimatedDuration">Duración Estimada:</label>
+          <input
+            type="text"
+            [(ngModel)]="newWorkPermit.estimatedDuration"
+            name="estimatedDuration"
+            class="form-control bg-dark text-white border-0"
+            placeholder="Introduce la duración estimada"
+            required
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="risks">Riesgos:</label>
+          <input
+            type="text"
+            [(ngModel)]="newWorkPermit.risks"
+            name="risks"
+            class="form-control bg-dark text-white border-0"
+            placeholder="Introduce los riesgos"
+            required
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="urgencyLevel">Nivel de Urgencia:</label>
+          <input
+            type="text"
+            [(ngModel)]="newWorkPermit.urgencyLevel"
+            name="urgencyLevel"
+            class="form-control bg-dark text-white border-0"
+            placeholder="Introduce el nivel de urgencia"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-light w-100">Crear</button>
+      </form>
+    </div>
+
+    <!-- Lista de permisos existentes -->
+    <div class="col-md-6">
+      <h2 class="text-white">Permisos de Trabajo Existentes</h2>
+      <div class="d-flex flex-wrap justify-content-start">
+        <div
+          class="card bg-dark text-white m-2"
+          *ngFor="let permit of workPermits"
+          style="width: 18rem;"
+        >
+          <div class="card-body">
+            <h5 class="card-title">{{ permit.workType }}</h5>
+            <p class="card-text">
+              <strong>ID de Usuario:</strong> {{ permit.userId }}<br />
+              <strong>Duración Estimada:</strong> {{ permit.estimatedDuration }}<br />
+              <strong>Riesgos:</strong> {{ permit.risks }}<br />
+              <strong>Nivel de Urgencia:</strong> {{ permit.urgencyLevel }}
+            </p>
+            <button class="btn btn-light me-2" (click)="selectWorkPermit(permit)">Editar</button>
+            <button class="btn btn-danger" (click)="deleteWorkPermit(permit.id)">Eliminar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario para editar permisos existentes -->
+      <div *ngIf="selectedWorkPermit" class="mt-5 bg-dark p-4 rounded shadow-lg text-white">
+        <h2>Editar Permiso de Trabajo</h2>
+        <form (ngSubmit)="updateWorkPermit()">
+          <div class="form-group mb-3">
+            <label for="userId">ID de Usuario:</label>
+            <input
+              type="number"
+              [(ngModel)]="selectedWorkPermit.userId"
+              name="userId"
+              class="form-control bg-dark text-white border-0"
+              required
+            />
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="workType">Tipo de Trabajo:</label>
+            <input
+              type="text"
+              [(ngModel)]="selectedWorkPermit.workType"
+              name="workType"
+              class="form-control bg-dark text-white border-0"
+              required
+            />
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="estimatedDuration">Duración Estimada:</label>
+            <input
+              type="text"
+              [(ngModel)]="selectedWorkPermit.estimatedDuration"
+              name="estimatedDuration"
+              class="form-control bg-dark text-white border-0"
+              required
+            />
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="risks">Riesgos:</label>
+            <input
+              type="text"
+              [(ngModel)]="selectedWorkPermit.risks"
+              name="risks"
+              class="form-control bg-dark text-white border-0"
+              required
+            />
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="urgencyLevel">Nivel de Urgencia:</label>
+            <input
+              type="text"
+              [(ngModel)]="selectedWorkPermit.urgencyLevel"
+              name="urgencyLevel"
+              class="form-control bg-dark text-white border-0"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn btn-light w-100">Actualizar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

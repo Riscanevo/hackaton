@@ -1,0 +1,225 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Headings */
+  h1, h2 {
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  
+  /* Form */
+  .form {
+    background-color: #1b1b1b;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .form-group label {
+    color: #bbbbbb;
+    font-size: 1rem;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 10px;
+    font-size: 1rem;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #444;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group input:focus {
+    border-color: #00aaff;
+    outline: none;
+    background-color: #333;
+    box-shadow: 0 0 8px rgba(0, 170, 255, 0.5);
+  }
+  
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #00aaff;
+    color: #ffffff;
+  }
+  
+  .btn-light {
+    background-color: #eeeeee;
+  }
+  
+  .btn-danger {
+    background-color: #ff4d4d;
+    color: white;
+  }
+  
+  .btn-danger:hover {
+    background-color: #ff1a1a;
+  }
+  
+  /* Form Buttons */
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #008fcc;
+  }
+  
+  /* List */
+  .list-group {
+    background-color: transparent;
+  }
+  
+  .list-group-item {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .list-group-item:hover {
+    background-color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .list-group-item button {
+    margin-left: 10px;
+    padding: 8px 12px;
+  }
+  
+  /* Edit Form */
+  .mt-5 {
+    margin-top: 50px;
+  }
+  
+  /* Shadows */
+  .shadow-lg {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Transitions and Animations */
+  .form input {
+    transition: background-color 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .form input:focus {
+    animation: glow 0.8s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 8px rgba(0, 170, 255, 0.5);
+    }
+    to {
+      box-shadow: 0 0 16px rgba(0, 170, 255, 1);
+    }
+  }
+  
+  button {
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .form, .list-group-item {
+      padding: 20px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    .btn {
+      padding: 8px 15px;
+    }
+  
+    button[type="submit"] {
+      padding: 10px;
+      font-size: 1rem;
+    }
+  }
+  
+  /* Dark Theme Tweaks */
+  body {
+    background-color: #121212;
+  }
+  
+  .bg-dark {
+    background-color: #1b1b1b !important;
+  }
+  
+  .text-white {
+    color: #ffffff !important;
+  }
+  
+  /* Extra Custom Styling for Hover Effects */
+  .form input:hover {
+    background-color: #1e1e1e;
+  }
+  
+  .list-group-item:hover button {
+    background-color: #555;
+    color: white;
+  }
+  
+  
