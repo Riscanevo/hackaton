@@ -21,12 +21,32 @@
     <!-- Sección de solicitud de permisos -->
     <section id="solicitud-permiso">
         <h2>Solicitud de Permiso</h2>
-        <form action="#" method="POST">
+        <form id="permiso-form">
+            <!-- Campo de selección para el tipo de trabajo -->
             <label for="tipo-trabajo">Tipo de Trabajo:</label>
-            <input type="text" id="tipo-trabajo" name="tipo-trabajo" required>
+            <select id="tipo-trabajo" name="tipo-trabajo" required>
+                <option value="" disabled selected>Seleccione el tipo de trabajo</option>
+                <option value="mantenimiento">Mantenimiento</option>
+                <option value="construccion">Construcción</option>
+                <option value="instalacion">Instalación</option>
+                <option value="trabajo-en-altura">Trabajo en altura</option>
+                <option value="trabajo-electrico">Trabajo eléctrico</option>
+                <option value="soldadura">Soldadura</option>
+                <option value="manejo-de-sustancias-peligrosas">Manipulación de sustancias peligrosas</option>
+                <option value="excavacion">Excavación</option>
+                <option value="inspeccion">Inspección o auditoría</option>
+                <option value="maquinaria-pesada">Trabajo con maquinaria pesada</option>
+            </select>
 
+            <!-- Campo de Duración Estimada con selección de días o meses -->
             <label for="duracion">Duración Estimada:</label>
-            <input type="text" id="duracion" name="duracion" required>
+            <div class="duracion-input">
+                <input type="number" id="duracion" name="duracion" min="1" required placeholder="Cantidad">
+                <select id="unidad-duracion" name="unidad-duracion" required>
+                    <option value="dias-habiles">Días hábiles</option>
+                    <option value="meses-habiles">Meses hábiles</option>
+                </select>
+            </div>
 
             <label for="riesgos">Riesgos Asociados:</label>
             <input type="text" id="riesgos" name="riesgos" required>
@@ -68,5 +88,38 @@
     <footer>
         <p>&copy; 2024 Gestión de Permisos de Trabajo. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- JavaScript para enviar el formulario -->
+    <script>
+        document.getElementById('permiso-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const data = {
+                tipoTrabajo: formData.get('tipo-trabajo'),
+                duracion: formData.get('duracion'),
+                unidadDuracion: formData.get('unidad-duracion'),
+                riesgos: formData.get('riesgos'),
+                urgencia: formData.get('urgencia'),
+                documentos: [],  // Aquí puedes manejar archivos si es necesario
+            };
+
+            fetch('http://localhost:5000/api/permisos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Permiso guardado:', result);
+            })
+            .catch(error => {
+                console.error('Error al guardar el permiso:', error);
+            });
+        });
+    </script>
 </body>
 </html>
+
