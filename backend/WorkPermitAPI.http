@@ -1,0 +1,6 @@
+@WorkPermitAPI_HostAddress = http://localhost:5255
+
+GET {{WorkPermitAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
