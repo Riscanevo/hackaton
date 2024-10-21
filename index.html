@@ -1,11 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gestión de Permisos de Trabajo</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Test</h1>
+    <!-- Encabezado -->
+    <header>
+        <h1>Gestión de Permisos de Trabajo</h1>
+        <nav>
+            <ul>
+                <li><a href="#solicitud-permiso">Solicitar Permiso</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de solicitud de permisos -->
+    <section id="solicitud-permiso">
+        <h2>Solicitud de Permiso</h2>
+        <form action="#" method="POST">
+            <label for="tipo-trabajo">Tipo de Trabajo:</label>
+            <input type="text" id="tipo-trabajo" name="tipo-trabajo" required>
+
+            <label for="duracion">Duración Estimada:</label>
+            <input type="text" id="duracion" name="duracion" required>
+
+            <label for="riesgos">Riesgos Asociados:</label>
+            <input type="text" id="riesgos" name="riesgos" required>
+
+            <label for="urgencia">Nivel de Urgencia:</label>
+            <select id="urgencia" name="urgencia" required>
+                <option value="baja">Baja</option>
+                <option value="media">Media</option>
+                <option value="alta">Alta</option>
+            </select>
+
+            <label for="documentos">Adjuntar Documentos:</label>
+            <input type="file" id="documentos" name="documentos" multiple>
+
+            <button type="submit">Enviar Solicitud</button>
+        </form>
+    </section>
+
+    <!-- Sección del dashboard -->
+    <section id="dashboard">
+        <h2>Dashboard de Productividad</h2>
+        <div class="dashboard-grid">
+            <div class="card">
+                <h3>Permisos Pendientes</h3>
+                <p>5</p>
+            </div>
+            <div class="card">
+                <h3>Permisos Aprobados</h3>
+                <p>12</p>
+            </div>
+            <div class="card">
+                <h3>Promedio de Tiempo de Aprobación</h3>
+                <p>3 días</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Gestión de Permisos de Trabajo. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
