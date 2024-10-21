@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sección de registro -->
+    <section id="registro">
+        <h2>REGISTRO DE USUARIO</h2>
+        <form id="registro-form">
+            <label for="nombre-completo">Nombre Completo:</label>
+            <input type="text" id="nombre-completo" name="nombre-completo" required placeholder="Nombre y Apellido">
+
+            <label for="cedula">Cédula:</label>
+            <input type="text" id="cedula" name="cedula" required placeholder="Número de Cédula">
+
+            <label for="telefono">Número de Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required placeholder="Número de Teléfono">
+
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" required placeholder="Correo Electrónico">
+
+            <button type="submit">Registrar</button>
+        </form>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Gestión de Permisos de Trabajo. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JavaScript para manejar el registro y el envío del formulario -->
+    <script>
+        document.getElementById('registro-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+
+            const formData = new FormData(event.target);
+            const nombreCompleto = formData.get('nombre-completo').split(' ');
+            const primerNombre = nombreCompleto[0];
+            const primerApellido = nombreCompleto[1];
+
+            // Guardar el nombre en localStorage para usarlo en index.html
+            localStorage.setItem('usuarioNombre', `${primerNombre} ${primerApellido}`);
+
+            // Redirigir a index.html
+            window.location.href = 'index.html'; // Asegúrate de que este archivo esté en el mismo directorio
+        });
+    </script>
+</body>
+</html>

@@ -9,20 +9,22 @@
 <body>
     <!-- Encabezado -->
     <header>
-        <h1>Gestión de Permisos de Trabajo</h1>
+        <h1>GESTIÓN DE PERMISOS</h1>
         <nav>
             <ul>
-                <li><a href="#solicitud-permiso">Solicitar Permiso</a></li>
-                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#solicitud-permiso" class="hidden">Solicitar Permiso</a></li>
+                <li><a href="#dashboard" class="hidden">Dashboard</a></li>
             </ul>
         </nav>
     </header>
 
+
+   
+
     <!-- Sección de solicitud de permisos -->
-    <section id="solicitud-permiso">
+    <section id="solicitud-permiso" class="hidden">
         <h2>Solicitud de Permiso</h2>
         <form id="permiso-form">
-            <!-- Campo de selección para el tipo de trabajo -->
             <label for="tipo-trabajo">Tipo de Trabajo:</label>
             <select id="tipo-trabajo" name="tipo-trabajo" required>
                 <option value="" disabled selected>Seleccione el tipo de trabajo</option>
@@ -38,7 +40,6 @@
                 <option value="maquinaria-pesada">Trabajo con maquinaria pesada</option>
             </select>
 
-            <!-- Campo de Duración Estimada con selección de días o meses -->
             <label for="duracion">Duración Estimada:</label>
             <div class="duracion-input">
                 <input type="number" id="duracion" name="duracion" min="1" required placeholder="Cantidad">
@@ -66,20 +67,20 @@
     </section>
 
     <!-- Sección del dashboard -->
-    <section id="dashboard">
-        <h2>Dashboard de Productividad</h2>
+    <section id="dashboard" class="hidden">
+        <h2>Bienvenido <span id="usuario-nombre"></span></h2>
         <div class="dashboard-grid">
             <div class="card">
                 <h3>Permisos Pendientes</h3>
-                <p>5</p>
+                <p></p>
             </div>
             <div class="card">
                 <h3>Permisos Aprobados</h3>
-                <p>12</p>
+                <p></p>
             </div>
             <div class="card">
                 <h3>Promedio de Tiempo de Aprobación</h3>
-                <p>3 días</p>
+                <p></p>
             </div>
         </div>
     </section>
@@ -89,8 +90,29 @@
         <p>&copy; 2024 Gestión de Permisos de Trabajo. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- JavaScript para enviar el formulario -->
+    <!-- JavaScript para manejar el registro y el envío del formulario -->
     <script>
+        document.getElementById('registro-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const nombreCompleto = formData.get('nombre-completo').split(' ');
+            const primerNombre = nombreCompleto[0];
+            const primerApellido = nombreCompleto[1];
+
+            // Mostrar el nombre en el dashboard
+            document.getElementById('usuario-nombre').textContent = `${primerNombre} ${primerApellido}`;
+
+            // Mostrar la sección del dashboard y ocultar el registro y la solicitud de permisos
+            document.getElementById('registro').classList.add('hidden');
+            document.getElementById('solicitud-permiso').classList.remove('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+
+            // Ocultar el encabezado de navegación de registro
+            document.querySelector('nav ul li a[href="#solicitud-permiso"]').classList.remove('hidden');
+            document.querySelector('nav ul li a[href="#dashboard"]').classList.remove('hidden');
+        });
+
         document.getElementById('permiso-form').addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -122,4 +144,3 @@
     </script>
 </body>
 </html>
-

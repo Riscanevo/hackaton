@@ -1,6 +1,5 @@
 /* Estilos generales */
 * {
-    margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
@@ -9,8 +8,7 @@
 body {
     background-color: #f4f4f9;
     color: #333;
-    padding: 20px;
-    line-height: 1.6;
+    line-height: 2.8;
 }
 
 h1, h2, h3 {
@@ -18,8 +16,15 @@ h1, h2, h3 {
     text-align: center;
 }
 
+.registro-mensaje {
+    text-align: center; /* Centra el texto horizontalmente */
+    margin-top: 20px; /* Espaciado superior opcional */
+}
+
+
 header {
     background-color: #333;
+    width: 100%;
     color: #fff;
     padding: 10px 0;
     text-align: center;
@@ -146,4 +151,3 @@ footer {
         font-size: 14px;
     }
 }
-
